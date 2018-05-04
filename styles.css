@@ -1,0 +1,24 @@
+#map {
+
+    height: 400px;
+    width: 500px;
+    display: inline-block;
+}
+#directionsPanel{
+    display:inline-block;
+    float:right;
+    width:40%;
+    height:60%;
+}
+.sliders{
+    display: flex;
+}
+.sliders > div{
+    flex: 1;
+}
+.originDestination{
+    display: flex;
+}
+.originDestination > div{
+    flex: 1;
+}
