@@ -8,49 +8,69 @@
 		<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	</head>
 	<body>
-		<article class="slds-card">
-		<div class = "sliders">
-			<div id="biking">
-				<p>
-	  				<label for="bike">I love to bike:</label>
-	  				<input type="text" id="bike" readonly style="border:0; color:#f6931f; font-weight:bold;">
-				</p>
-				<div id="slider-bike" style="height:200px;"></div>
+		<div class="slds-grid slds-gutters slds-wrap">
+			<div class="slds-col slds-size_8-of-12">
+				<article class="slds-card">
+					hey
+				</article>
 			</div>
-			<div id="busing">
-				<p>
-	  				<label for="bus">I ride the bus:</label>
-	  				<input type="text" id="bus" readonly style="border:0; color:#f6931f; font-weight:bold;">
-				</p>
-				<div id="slider-bus" style="height:200px;"></div>
+			<div class="slds-col slds-size_4-of-12">
+				<article class="slds-card">
+					sup
+				</article>
 			</div>
-			<div id="driving">
-				<p>
-	  				<label for="drive">2Fast2Furious:</label>
-	  				<input type="text" id="drive" readonly style="border:0; color:#f6931f; font-weight:bold;">
-				</p>
-				<div id="slider-drive" style="height:200px;"></div>
-			</div>
+			<div class="slds-col slds-size_8-of-12">
+				<article class="slds-card">
+					<div class="slds-card__header slds-grid">
+						
+						<div class="slds-border_bottom">
+							Choose your mode of Transport today
+						</div>
+					</div>
+				<div class = "sliders">
+					<div id="biking">
+						<p>
+			  				<label for="bike">I love to bike:</label>
+			  				<input type="text" id="bike" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+						<div id="slider-bike" style="height:200px;"></div>
+					</div>
+					<div id="busing">
+						<p>
+			  				<label for="bus">I ride the bus:</label>
+			  				<input type="text" id="bus" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+						<div id="slider-bus" style="height:200px;"></div>
+					</div>
+					<div id="driving">
+						<p>
+			  				<label for="drive">2Fast2Furious:</label>
+			  				<input type="text" id="drive" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+						<div id="slider-drive" style="height:200px;"></div>
+					</div>
+				</div>
+				<div class = "originDestination">
+					<div id="floating-panel">
+						Home:
+			     		<input id="address" type="textbox" >
+			      		<input class="slds-button_neutral" id="submit" type="button" value="Submit">
+			    	</div>
+			    	<div id="destinationDropDown">
+			    		Office:
+				    	<select id = "offices">
+							<option value="43.0332535,-87.9061252">Milwaukee</option>
+							<option value="44.9762798,-93.2687264">Minneapolis</option>
+							<option value="32.8090935,-96.8079239">Dallas</option>
+							<option value="41.8925451,-87.6367606">Chicago</option>
+						</select>
+					</div>
+				</div>
+				<div id="map"></div>
+		    	<div id="directionsPanel"></div>
+		    </article>
 		</div>
-		<div class = "originDestination">
-			<div id="floating-panel">
-				Home:
-	     		<input id="address" type="textbox" >
-	      		<input class="slds-button_neutral" id="submit" type="button" value="Submit">
-	    	</div>
-	    	<div id="destinationDropDown">
-	    		Office:
-		    	<select id = "offices">
-					<option value="43.0332535,-87.9061252">Milwaukee</option>
-					<option value="44.9762798,-93.2687264">Minneapolis</option>
-					<option value="32.8090935,-96.8079239">Dallas</option>
-					<option value="41.8925451,-87.6367606">Chicago</option>
-				</select>
-			</div>
-		</div>
-		<div id="map"></div>
-    	<div id="directionsPanel"></div>
-    </article>
+	</div>
 		<script type="text/javascript" src="script.js"></script>
 		<script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZo2Dqt2iA4D6so41ahwoBrBtDMzIEm3o&callback=initMap">
