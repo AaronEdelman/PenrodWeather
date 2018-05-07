@@ -4,10 +4,10 @@ getWeather();
 
 function getCityIds(){
   var cityIds=[
-  5263045, //milwaukee
-  4275586, //minneapolis
-  4462896, //dallas
-  4887492 //chicago
+  {city:'milwaukee', cityId: 5263045}, //milwaukee
+  {city:'minneapolis', cityId: 4275586}, //minneapolis
+  {city:'dallas', cityId: 4462896}, //dallas
+  {city:'chicago', cityId: 4887398} //chicago
   ];
   return cityIds;
 }
@@ -18,10 +18,10 @@ function getWeatherAPICallString(){
   var APIcall = 'http://api.openweathermap.org/data/2.5/group?id=';
   for(var i=0; i<cityIds.length; i++){
     if(i < cityIds.length-1){
-    APIcall += cityIds[i] + ',';
+    APIcall += cityIds[i].cityId + ',';
     }
     else{
-      APIcall += cityIds[i];
+      APIcall += cityIds[i].cityId;
     }
   }
   APIcall += '&APPID=' + APIkey + '&units=imperial';
@@ -35,15 +35,30 @@ function getWeather(){
     .then(
       function(response){
         if(response.status !== 200){
-          alert('Weather failed due to' + response.status);
+          alert('Weather failed due to error:' + response.status);
         }
         else{
           response.json().then(function(data) {
-        console.log(data);
+          parseWeatherJSON(data);
         });
       }
       });
 
+}
+
+function parseWeatherJSON(data){
+  console.log(data);
+  var slides = document.getElementsByClassName("weather");
+  for(var i = 0; i<slides.length; i++)
+  {
+    var slide = slides[i].id;
+    for(var k = 0; k<data.cnt; k++)
+    {
+      if(slide.includes(data.list[k].name.toLowerCase())){
+      console.log(data.list[k].name);
+      }
+    }
+  }
 }
 
 function initMap() {
