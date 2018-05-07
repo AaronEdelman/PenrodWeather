@@ -55,7 +55,7 @@ function parseWeatherJSON(data){
     for(var k = 0; k<data.cnt; k++)
     {
       if(slide.includes(data.list[k].name.toLowerCase())){
-      console.log(data.list[k].name);
+      document.getElementById(slide).innerHTML = data.list[k].main.temp.toFixed(1) + "&deg"+"F <br>" + data.list[k].weather[0].description;
       }
     }
   }
