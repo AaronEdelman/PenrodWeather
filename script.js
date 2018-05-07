@@ -1,5 +1,51 @@
 //Travel Directions
 
+getWeather();
+
+function getCityIds(){
+  var cityIds=[
+  5263045, //milwaukee
+  4275586, //minneapolis
+  4462896, //dallas
+  4887492 //chicago
+  ];
+  return cityIds;
+}
+
+function getWeatherAPICallString(){
+  var APIkey = '74bd7bb4aeb708042caefaaaec71be6b';
+  var cityIds = getCityIds();
+  var APIcall = 'http://api.openweathermap.org/data/2.5/group?id=';
+  for(var i=0; i<cityIds.length; i++){
+    if(i < cityIds.length-1){
+    APIcall += cityIds[i] + ',';
+    }
+    else{
+      APIcall += cityIds[i];
+    }
+  }
+  APIcall += '&APPID=' + APIkey + '&units=imperial';
+  return APIcall
+}
+
+function getWeather(){
+  var APIcall = getWeatherAPICallString();
+  console.log(APIcall)
+  fetch(APIcall)
+    .then(
+      function(response){
+        if(response.status !== 200){
+          alert('Weather failed due to' + response.status);
+        }
+        else{
+          response.json().then(function(data) {
+        console.log(data);
+        });
+      }
+      });
+
+}
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -16,6 +62,7 @@ function initMap() {
     });
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 }
+
 function getDestination(){
     var office = document.getElementById('offices').value;
     var destinationLatLng;
