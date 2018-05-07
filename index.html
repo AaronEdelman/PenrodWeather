@@ -9,9 +9,44 @@
 	</head>
 	<body>
 		<div class="slds-grid slds-gutters slds-wrap">
+			<!--Navigation Card-->
 			<div class="slds-col slds-size_8-of-12">
 				<article class="slds-card">
-					hey
+					<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="Images/downtown-milwaukee.jpg" style="width:100% height:50%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="Images/downtown-minneapolis.jpg" style="width:100% height:50%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="Images/downtown-dallas.jpg" style="width:100% height:50%">
+  <div class="text">Caption Three</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="Images/downtown-chicago.jpg" style="width:100% height:50%">
+  <div class="text">Caption four</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span>
+  <span class="dot"></span>  
+</div>
 				</article>
 			</div>
 			<div class="slds-col slds-size_4-of-12">
@@ -24,13 +59,13 @@
 					<div class="slds-card__header slds-grid">
 						
 						<div class="slds-border_bottom">
-							Choose your mode of Transport today
+							Choose your mode of Transport
 						</div>
 					</div>
 				<div class = "sliders">
 					<div id="biking">
 						<p>
-			  				<label for="bike">I love to bike:</label>
+			  				<label for="bike">I love to bike</label>
 			  				<input type="text" id="bike" readonly style="border:0; color:#f6931f; font-weight:bold;">
 						</p>
 						<div id="slider-bike" style="height:200px;"></div>
@@ -53,12 +88,12 @@
 				<div class = "originDestination">
 					<div id="floating-panel">
 						Home:
-			     		<input id="address" type="textbox" >
+			     		<input class="slds-input" id="address" type="textbox" >
 			      		<input class="slds-button_neutral" id="submit" type="button" value="Submit">
 			    	</div>
 			    	<div id="destinationDropDown">
 			    		Office:
-				    	<select id = "offices">
+				    	<select class="slds-input" id = "offices">
 							<option value="43.0332535,-87.9061252">Milwaukee</option>
 							<option value="44.9762798,-93.2687264">Minneapolis</option>
 							<option value="32.8090935,-96.8079239">Dallas</option>
