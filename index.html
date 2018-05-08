@@ -9,28 +9,29 @@
 	</head>
 	<body>
 		<div class="slds-grid slds-gutters slds-wrap">
+			<!-- WEATHER SLIDESHOW -->
 			<div class="slds-col slds-size_8-of-12">
 				<article class="slds-card">
 					<div class="slideshow-container">
 
 						<div class="mySlides fade">
-						  <img src="Images/downtown-milwaukee.jpg" style="width:100% height:50%">
+						  <img src="Images/downtown-milwaukee.jpg" class="slideIMG">
 						  <div class="weather" id="milwaukeeWeather"></div>
 						</div>
 
 
 						<div class="mySlides fade">
-						  <img src="Images/downtown-minneapolis.jpg" style="width:100% height:50%">
+						  <img src="Images/downtown-minneapolis.jpg" class="slideIMG">
 						  <div class="weather" id="minneapolisWeather"></div>
 						</div>
 
 						<div class="mySlides fade">
-						  <img src="Images/downtown-dallas.jpg" style="width:100% height:50%">
+						  <img src="Images/downtown-dallas.jpg" class="slideIMG">
 						  <div class="weather" id="dallasWeather"></div>
 						</div>
 
 						<div class="mySlides fade">
-						  <img src="Images/downtown-chicago.jpg" style="width:100% height:50%">
+						  <img src="Images/downtown-chicago.jpg" class="slideIMG">
 						  <div class="weather" id="chicagoWeather"></div>
 						</div>
 
@@ -53,80 +54,80 @@
 				</article>
 			</div>
 
-
+			<!--TRANSPORT/MAP-->
 			<div class="slds-col slds-size_8-of-12">
 				<article class="slds-card">
 					<div class="slds-card__header slds-grid">
 						
 						<div class="slds-border_bottom">
 							Choose your mode of Transport
-							<button onclick="test()">TEST</button>
+							<!-- <button onclick="test()">TEST</button> -->
 						</div>
 					</div>
-				<div class = "sliders">
-					<div class = "slds-form-element">
-						<label class="slds-form-element__label" for="bike">
-						    <span class="slds-slider-label">
-						      <span class="slds-slider-label__label">Bike</span>
-						      <span class="slds-slider-label__range"></span>
-						    </span>
-					   	</label>
-						<div class="slds-form-element__control" id="biking">
-							<div class="slds-slider">
-				  				<input type="range" class="slds-slider__range" id="bike" readonly ">
-				  				<span class="slds-slider__value" aria-hidden="true"></span>
+					<div class = "sliders">
+						<div class = "slds-form-element">
+							<label class="slds-form-element__label" for="bike">
+							    <span class="slds-slider-label">
+							      <span class="slds-slider-label__label">Bike</span>
+							      <span class="slds-slider-label__range"></span>
+							    </span>
+						   	</label>
+							<div class="slds-form-element__control" id="biking">
+								<div class="slds-slider">
+					  				<input type="range" class="slds-slider__range" id="bike" readonly ">
+					  				<span class="slds-slider__value" aria-hidden="true"></span>
+								</div>
+								<div id="slider-bike" style="height:10px;"></div>
 							</div>
-							<div id="slider-bike" style="height:10px;"></div>
-						</div>
-						<label class="slds-form-element__label" for="bus">
-						    <span class="slds-slider-label">
-						      <span class="slds-slider-label__label">Bus</span>
-						      <span class="slds-slider-label__range"></span>
-						    </span>
-					   	</label>
-						<div class="slds-form-element__control" id="busing">
-							<div class="slds-slider">
-				  				<input type="range" class="slds-slider__range" id="bus" readonly ">
-				  				<span class="slds-slider__value" aria-hidden="true"></span>
+							<label class="slds-form-element__label" for="bus">
+							    <span class="slds-slider-label">
+							      <span class="slds-slider-label__label">Bus</span>
+							      <span class="slds-slider-label__range"></span>
+							    </span>
+						   	</label>
+							<div class="slds-form-element__control" id="busing">
+								<div class="slds-slider">
+					  				<input type="range" class="slds-slider__range" id="bus" readonly ">
+					  				<span class="slds-slider__value" aria-hidden="true"></span>
+								</div>
+								<div id="slider-bus" style="height:10px;"></div>
 							</div>
-							<div id="slider-bus" style="height:10px;"></div>
-						</div>
-						<label class="slds-form-element__label" for="drive">
-						    <span class="slds-slider-label">
-						      <span class="slds-slider-label__label">Drive</span>
-						      <span class="slds-slider-label__range"></span>
-						    </span>
-					   	</label>
-						<div class="slds-form-element__control" id="driving">
-							<div class="slds-slider">
-				  				<input type="range" class="slds-slider__range" id="drive" readonly ">
-				  				<span class="slds-slider__value" aria-hidden="true"></span>
+							<label class="slds-form-element__label" for="drive">
+							    <span class="slds-slider-label">
+							      <span class="slds-slider-label__label">Drive</span>
+							      <span class="slds-slider-label__range"></span>
+							    </span>
+						   	</label>
+							<div class="slds-form-element__control" id="driving">
+								<div class="slds-slider">
+					  				<input type="range" class="slds-slider__range" id="drive" readonly ">
+					  				<span class="slds-slider__value" aria-hidden="true"></span>
+								</div>
+								<div id="slider-drive" style="height:10px;"></div>
 							</div>
-							<div id="slider-drive" style="height:10px;"></div>
 						</div>
 					</div>
-				</div>
-				<div class = "originDestination">
-					<div id="floating-panel">
-						Home:
-			     		<input class="slds-input" id="address" type="textbox" >
-			      		<input class="slds-button_neutral" id="submit" type="button" value="Submit">
-			    	</div>
-			    	<div id="destinationDropDown">
-			    		Office:
-				    	<select class="slds-input" id = "offices">
-							<option value="milwaukee">Milwaukee</option>
-							<option value="minneapolis">Minneapolis</option>
-							<option value="dallas">Dallas</option>
-							<option value="chicago">Chicago</option>
-						</select>
+					<div class = "originDestination">
+						<div id="floating-panel">
+							Home:
+				     		<input class="slds-input" id="address" type="textbox" >
+				    	</div>
+				    	<div id="destinationDropDown">
+				    		Office:
+					    	<select class="slds-input" id = "offices">
+								<option value="milwaukee">Milwaukee</option>
+								<option value="minneapolis">Minneapolis</option>
+								<option value="dallas">Dallas</option>
+								<option value="chicago">Chicago</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div id="map"></div>
-		    	<div id="directionsPanel"></div>
-		    </article>
+					<button class="slds-button_success" id="submit">Calculate Route</button>
+					<div id="map"></div>
+			    	<div id="directionsPanel"></div>
+		    	</article>
+			</div>
 		</div>
-	</div>
 		<script type="text/javascript" src="script.js"></script>
 		<script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZo2Dqt2iA4D6so41ahwoBrBtDMzIEm3o&callback=initMap">

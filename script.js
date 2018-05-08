@@ -249,13 +249,11 @@ $( function() {
     $( "#drive" ).val( $( "#slider-drive" ).slider( "value" ) );
   } );
 
-
 //Weather slideshow
 
 var slideIndex = 0;
-showSlides();
 
-function showSlides() {
+(function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
@@ -270,7 +268,7 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 7000); // Change image every 2 seconds
-}
+})();
 
 
 function test(){
