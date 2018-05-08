@@ -114,8 +114,57 @@ function geocodeAddress(directionsService, directionsDisplay, geocoder, callback
 }
 function calculateTravelMode(destination){
   var cityWeatherObj = refineWeatherObj(destination);
-  console.log(cityWeatherObj);
+  var bikePoints = Number(document.getElementById('bike').value);
+  var busPoints = Number(document.getElementById('bus').value);
+  var drivePoints = Number(document.getElementById('drive').value);
+  //temp controls
+  switch(true){
+    case (cityWeatherObj.main.temp < 0):
+    bikePoints -= 100;
+    busPoints -= 20;
+    break;
+    case (cityWeatherObj.main.temp >= 0 && cityWeatherObj.main.temp <= 50):
+    bikePoints -= 30;
+    break;
+    case(cityWeatherObj.main.temp > 50 && cityWeatherObj.main.temp <=85 ):
+    bikePoints += 30;
+    break;
+    case(cityWeatherObj.main.temp >=85):
+    bikePoints -=20;
+    break;
+    default:
+    break;
+  }
+  //element controls
+  var element = cityWeatherObj.weather[0].id.toString();
+  switch(true){
+    case (element.startsWith('2')): //thunderstorm
+    bikePoints -= 80;
+    busPoints -= 10;
+    break;
+    case (element.startsWith('3')): //drizzle
+    bikePoints -=10;
+    break;
+    case (element.startsWith('5')): //rain
+    bikePoints -=30;
+    busPoints -= 20;
+    break;
+    case (element.startsWith('6')): //snow
+    bikePoints -= 100;
+    drivePoints -= 20;
+    busPoints += 20;
+    break;
+    case (element.startsWith('8')): 
+    bikePoints += 30;
+    break;
+    default:
+    break;
+  }
+  console.log(bikePoints);
+  console.log(busPoints);
+  console.log(drivePoints);
 }
+
 function refineWeatherObj(destination){
   console.log(weatherObj);
   for(var i=0; i<weatherObj.cnt; i++)
