@@ -19490,6 +19490,8 @@ a.slds-button--inverse:focus {
  * @modifier
  */
 .slds-gutters {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
   margin-right: -0.75rem;
   margin-left: -0.75rem; }
 

@@ -1,6 +1,6 @@
 //Travel Directions
 
-getWeather();
+//getWeather();
 
 function getCityIds(){
   var cityIds=[
@@ -28,7 +28,7 @@ function getWeatherAPICallString(){
   return APIcall
 }
 
-function getWeather(){
+(function getWeather(){
   var APIcall = getWeatherAPICallString();
   console.log(APIcall)
   fetch(APIcall)
@@ -43,8 +43,7 @@ function getWeather(){
         });
       }
       });
-
-}
+})();
 
 function parseWeatherJSON(data){
   console.log(data);
@@ -56,6 +55,7 @@ function parseWeatherJSON(data){
     {
       if(slide.includes(data.list[k].name.toLowerCase())){
       document.getElementById(slide).innerHTML = data.list[k].main.temp.toFixed(1) + "&deg"+"F <br>" + data.list[k].weather[0].description;
+      break;
       }
     }
   }
