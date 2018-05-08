@@ -1,7 +1,5 @@
 //Travel Directions
 
-//getWeather();
-
 function getCityIds(){
   var cityIds=[
   {city:'milwaukee', cityId: 5263045}, //milwaukee
@@ -30,7 +28,7 @@ function getWeatherAPICallString(){
 
 (function getWeather(){
   var APIcall = getWeatherAPICallString();
-  console.log(APIcall)
+  //console.log(APIcall)
   fetch(APIcall)
     .then(
       function(response){
@@ -46,7 +44,6 @@ function getWeatherAPICallString(){
 })();
 
 function parseWeatherJSON(data){
-  console.log(data);
   var slides = document.getElementsByClassName("weather");
   for(var i = 0; i<slides.length; i++)
   {
@@ -54,12 +51,13 @@ function parseWeatherJSON(data){
     for(var k = 0; k<data.cnt; k++)
     {
       if(slide.includes(data.list[k].name.toLowerCase())){
-      document.getElementById(slide).innerHTML = data.list[k].main.temp.toFixed(1) + "&deg"+"F <br>" + data.list[k].weather[0].description;
-      break;
+      document.getElementById(slide).innerHTML = data.list[k].main.temp.toFixed(1) + "&deg"+"F <br>" + data.list[k].weather[0].description;//sets visible text on slide
+      document.getElementById(slide).value = data.list[k]; //stores city's weather JSON as slide's value.
       }
     }
   }
 }
+
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
@@ -78,24 +76,23 @@ function initMap() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 }
 
-function getDestination(){
-    var office = document.getElementById('offices').value;
+function getDestination(office){
     var destinationLatLng;
     switch(office){
         case 'milwaukee':
-        destinationLatLng = '(43.0332535, -87.9061252)';
+        destinationLatLng = '43.0332535,-87.9061252';
         break;
         case 'minneapolis':
-        destinationLatLng = '(44.9762798, -93.2687264)';
+        destinationLatLng = '44.9762798,-93.2687264';
         break;
         case 'dallas':
-        destinationLatLng = '(32.8090935, -96.8079239)';
+        destinationLatLng = '32.8090935,-96.8079239';
         break;
         case 'chicago':
-        destinationLatLng = '(41.8925451, -87.6367606)';
+        destinationLatLng = '41.8925451,-87.6367606';
         break;
-        return destinationLatLng;
     }
+    return destinationLatLng;
 }
 //calculateAndDisplayRoute entered as a callback, as this function would finish before geocoding finishes.
 function geocodeAddress(directionsService, directionsDisplay, geocoder, callback){
@@ -109,10 +106,24 @@ function geocodeAddress(directionsService, directionsDisplay, geocoder, callback
         });
 
 }
+function calculateTravelMode(destination){
+  var slides = document.getElementsByClassName("weather");
+  for(var i = 0; i<slides.length; i++)
+  {
+    var slide = slides[i].id;
+    if (slide.includes(destination.toLowerCase())){
+      console.log('hello');
+      return;
+    }
+  }
+}
+
 function calculateAndDisplayRoute(directionsService, directionsDisplay, originLatLng) {
     var origin = originLatLng;
-    var destination = document.getElementById('offices').value;
+    var office = document.getElementById('offices').value;
+    var destination = getDestination(office)
     var destLatLng = destination.split(",");
+    var travelMode = calculateTravelMode(office);
     directionsService.route({
         origin: origin,
         destination: new google.maps.LatLng(destLatLng[0], destLatLng[1]),
@@ -168,10 +179,6 @@ $( function() {
     $( "#drive" ).val( $( "#slider-drive" ).slider( "value" ) );
   } );
 
-function test(){
-var value = document.getElementById('bike').value;
-alert(value);
-}
 
 //Weather slideshow
 
@@ -193,5 +200,11 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 7000); // Change image every 2 seconds
+}
+
+
+function test(){
+var value = document.getElementById('milwaukeeWeather').value;
+console.log(value);
 }
 
