@@ -2,14 +2,13 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href = "styles.css">
-		<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+		<!-- <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css"> -->
 		<link rel="stylesheet" href="LightningDesign/salesforce-lightning-design-system.css">
 		<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 		<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	</head>
 	<body>
 		<div class="slds-grid slds-gutters slds-wrap">
-			<!--Navigation Card-->
 			<div class="slds-col slds-size_8-of-12">
 				<article class="slds-card">
 					<div class="slideshow-container">
@@ -50,40 +49,65 @@
 					</div>
 				</article>
 			</div>
+
+
 			<div class="slds-col slds-size_4-of-12">
 				<article class="slds-card">
 					sup
 				</article>
 			</div>
+
+
 			<div class="slds-col slds-size_8-of-12">
 				<article class="slds-card">
 					<div class="slds-card__header slds-grid">
 						
 						<div class="slds-border_bottom">
 							Choose your mode of Transport
+							<button onclick="test()">TEST</button>
 						</div>
 					</div>
 				<div class = "sliders">
-					<div id="biking">
-						<p>
-			  				<label for="bike">I love to bike</label>
-			  				<input type="text" id="bike" readonly style="border:0; color:#f6931f; font-weight:bold;">
-						</p>
-						<div id="slider-bike" style="height:200px;"></div>
-					</div>
-					<div id="busing">
-						<p>
-			  				<label for="bus">I ride the bus:</label>
-			  				<input type="text" id="bus" readonly style="border:0; color:#f6931f; font-weight:bold;">
-						</p>
-						<div id="slider-bus" style="height:200px;"></div>
-					</div>
-					<div id="driving">
-						<p>
-			  				<label for="drive">2Fast2Furious:</label>
-			  				<input type="text" id="drive" readonly style="border:0; color:#f6931f; font-weight:bold;">
-						</p>
-						<div id="slider-drive" style="height:200px;"></div>
+					<div class = "slds-form-element">
+						<label class="slds-form-element__label" for="bike">
+						    <span class="slds-slider-label">
+						      <span class="slds-slider-label__label">Bike</span>
+						      <span class="slds-slider-label__range"></span>
+						    </span>
+					   	</label>
+						<div class="slds-form-element__control" id="biking">
+							<div class="slds-slider">
+				  				<input type="range" class="slds-slider__range" id="bike" readonly ">
+				  				<span class="slds-slider__value" aria-hidden="true"></span>
+							</div>
+							<div id="slider-bike" style="height:10px;"></div>
+						</div>
+						<label class="slds-form-element__label" for="bus">
+						    <span class="slds-slider-label">
+						      <span class="slds-slider-label__label">Bus</span>
+						      <span class="slds-slider-label__range"></span>
+						    </span>
+					   	</label>
+						<div class="slds-form-element__control" id="busing">
+							<div class="slds-slider">
+				  				<input type="range" class="slds-slider__range" id="bus" readonly ">
+				  				<span class="slds-slider__value" aria-hidden="true"></span>
+							</div>
+							<div id="slider-bus" style="height:10px;"></div>
+						</div>
+						<label class="slds-form-element__label" for="drive">
+						    <span class="slds-slider-label">
+						      <span class="slds-slider-label__label">2fast2furious</span>
+						      <span class="slds-slider-label__range"></span>
+						    </span>
+					   	</label>
+						<div class="slds-form-element__control" id="driving">
+							<div class="slds-slider">
+				  				<input type="range" class="slds-slider__range" id="drive" readonly ">
+				  				<span class="slds-slider__value" aria-hidden="true"></span>
+							</div>
+							<div id="slider-drive" style="height:10px;"></div>
+						</div>
 					</div>
 				</div>
 				<div class = "originDestination">

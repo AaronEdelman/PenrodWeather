@@ -128,7 +128,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, originLa
 //travel preference sliders
 $( function() {
     $( "#slider-bike" ).slider({
-      orientation: "vertical",
+      orientation: "horizontal",
       range: "min",
       min: 0,
       max: 100,
@@ -142,7 +142,7 @@ $( function() {
 
 $( function() {
     $( "#slider-bus" ).slider({
-      orientation: "vertical",
+      orientation: "horizontal",
       range: "min",
       min: 0,
       max: 100,
@@ -156,7 +156,7 @@ $( function() {
 
 $( function() {
     $( "#slider-drive" ).slider({
-      orientation: "vertical",
+      orientation: "horizontal",
       range: "min",
       min: 0,
       max: 100,
@@ -168,7 +168,10 @@ $( function() {
     $( "#drive" ).val( $( "#slider-drive" ).slider( "value" ) );
   } );
 
-
+function test(){
+var value = document.getElementById('bike').value;
+alert(value);
+}
 
 //Weather slideshow
 
