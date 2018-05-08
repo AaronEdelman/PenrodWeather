@@ -1,4 +1,5 @@
 //Travel Directions
+var weatherObj;
 
 function getCityIds(){
   var cityIds=[
@@ -38,6 +39,7 @@ function getWeatherAPICallString(){
         else{
           response.json().then(function(data) {
           parseWeatherJSON(data);
+          storeWeatherJSON(data);
         });
       }
       });
@@ -52,10 +54,14 @@ function parseWeatherJSON(data){
     {
       if(slide.includes(data.list[k].name.toLowerCase())){
       document.getElementById(slide).innerHTML = data.list[k].main.temp.toFixed(1) + "&deg"+"F <br>" + data.list[k].weather[0].description;//sets visible text on slide
-      document.getElementById(slide).value = data.list[k]; //stores city's weather JSON as slide's value.
+      document.getElementById(slide).value = data.list[k];
       }
     }
   }
+}
+
+function storeWeatherJSON(data){
+  weatherObj = data;
 }
 
 
@@ -107,13 +113,15 @@ function geocodeAddress(directionsService, directionsDisplay, geocoder, callback
 
 }
 function calculateTravelMode(destination){
-  var slides = document.getElementsByClassName("weather");
-  for(var i = 0; i<slides.length; i++)
+  var cityWeatherObj = refineWeatherObj(destination);
+  console.log(cityWeatherObj);
+}
+function refineWeatherObj(destination){
+  console.log(weatherObj);
+  for(var i=0; i<weatherObj.cnt; i++)
   {
-    var slide = slides[i].id;
-    if (slide.includes(destination.toLowerCase())){
-      console.log('hello');
-      return;
+    if(weatherObj.list[i].name.toLowerCase() === destination){
+      return weatherObj.list[i];
     }
   }
 }
