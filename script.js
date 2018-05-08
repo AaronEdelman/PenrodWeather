@@ -117,6 +117,7 @@ function calculateTravelMode(destination){
   var bikePoints = Number(document.getElementById('bike').value);
   var busPoints = Number(document.getElementById('bus').value);
   var drivePoints = Number(document.getElementById('drive').value);
+  var travelMethod;
   //temp controls
   switch(true){
     case (cityWeatherObj.main.temp < 0):
@@ -154,15 +155,27 @@ function calculateTravelMode(destination){
     drivePoints -= 20;
     busPoints += 20;
     break;
-    case (element.startsWith('8')): 
+    case (element.startsWith('8')): //clear & cloudy
     bikePoints += 30;
     break;
-    default:
+    default: //includes weird weather events
     break;
   }
+
   console.log(bikePoints);
   console.log(busPoints);
   console.log(drivePoints);
+  switch(true){
+    case (bikePoints >= busPoints && bikePoints >= drivePoints):
+    return 'BICYCLING';
+    case (busPoints > bikePoints && busPoints >= drivePoints):
+    return 'TRANSIT';
+    case (drivePoints > bikePoints && drivePoints > busPoints):
+    return 'DRIVING';
+    default:
+    return 'DRIVING';
+  }
+  
 }
 
 function refineWeatherObj(destination){
@@ -184,7 +197,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, originLa
     directionsService.route({
         origin: origin,
         destination: new google.maps.LatLng(destLatLng[0], destLatLng[1]),
-        travelMode: 'DRIVING'
+        travelMode: travelMode
     }, function(response, status) {
         if (status === 'OK') {
             directionsDisplay.setDirections(response);
