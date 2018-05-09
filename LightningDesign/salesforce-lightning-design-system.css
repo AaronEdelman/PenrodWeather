@@ -48,7 +48,8 @@ html {
   -webkit-text-size-adjust: 100%; }
 
 body {
-  margin: 0; }
+  margin: 0;
+}
 
 article,
 aside,
@@ -19490,6 +19491,7 @@ a.slds-button--inverse:focus {
  * @modifier
  */
 .slds-gutters {
+  background-color: rgb(206, 211, 232);
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;
   margin-right: -0.75rem;

@@ -1,4 +1,3 @@
-//Travel Directions
 var weatherObj;
 
 function getCityIds(){
@@ -194,6 +193,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, originLa
     var destination = getDestination(office)
     var destLatLng = destination.split(",");
     var travelMode = calculateTravelMode(office);
+    console.log(travelMode);
     directionsService.route({
         origin: origin,
         destination: new google.maps.LatLng(destLatLng[0], destLatLng[1]),
