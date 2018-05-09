@@ -7,7 +7,7 @@
 		<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 		<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	</head>
-	<body>
+	<body onunload="storeTravelPreferences()">
 		<div class="slds-grid slds-gutters slds-wrap">
 			<div class="slds-col slds-size_6-of-12">
 				<!--PENROD LOGO-->
@@ -57,6 +57,7 @@
 						
 						<div class="slds-border_bottom">
 							Choose your mode of Transport
+							<button onclick="test()">TEST</button>
 						</div>
 					</div>
 					<div class = "sliders">

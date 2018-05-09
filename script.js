@@ -213,7 +213,7 @@ $( function() {
       range: "min",
       min: 0,
       max: 100,
-      value: 60,
+      value: localStorage.getItem("bikePoints"),
       slide: function( event, ui ) {
         $( "#bike" ).val( ui.value );
       }
@@ -227,7 +227,7 @@ $( function() {
       range: "min",
       min: 0,
       max: 100,
-      value: 60,
+      value: localStorage.getItem("busPoints"),
       slide: function( event, ui ) {
         $( "#bus" ).val( ui.value );
       }
@@ -241,7 +241,7 @@ $( function() {
       range: "min",
       min: 0,
       max: 100,
-      value: 60,
+      value: localStorage.getItem("drivePoints"),
       slide: function( event, ui ) {
         $( "#drive" ).val( ui.value );
       }
@@ -267,12 +267,19 @@ var slideIndex = 0;
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 7000); // Change image every 2 seconds
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
 })();
 
 
 function test(){
-var value = document.getElementById('milwaukeeWeather').value;
+
+var value = localStorage.getItem("bikePoints");
 console.log(value);
+}
+
+function storeTravelPreferences(){
+  localStorage.setItem("bikePoints", document.getElementById('bike').value);
+  localStorage.setItem("busPoints", document.getElementById('bus').value);
+  localStorage.setItem("drivePoints", document.getElementById('drive').value);
 }
 
