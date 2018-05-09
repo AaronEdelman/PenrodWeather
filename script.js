@@ -82,6 +82,13 @@ function calculateTravelMode(destination){
   } 
 }
 
+document.getElementById('infoIcon').addEventListener('mouseover', function() {
+      document.getElementById('travelInstructions').style.zIndex = "2";
+  });
+document.getElementById('infoIcon').addEventListener('mouseout', function() {
+      document.getElementById('travelInstructions').style.zIndex = "-1";
+  });
+
 function geocodeAddress(directionsService, directionsDisplay, geocoder, callback){
     var address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
@@ -246,7 +253,6 @@ function parseWeatherJSON(data){
     {
       if(slide.includes(data.list[k].name.toLowerCase())){
       document.getElementById(slide).innerHTML = data.list[k].main.temp.toFixed(1) + "&deg"+"F <br>" + data.list[k].weather[0].description;//sets visible text on slide
-      document.getElementById(slide).value = data.list[k];
       }
     }
   }

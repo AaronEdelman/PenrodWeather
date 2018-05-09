@@ -12,6 +12,18 @@ body {
     height: auto;
     overflow-x: scroll;
 }
+#infoIcon{
+    height: 20px;
+    width: 20px;
+    padding-left: 5px;
+}
+#travelInstructions{
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+}
 #map {
 
     height: 400px;
@@ -23,6 +35,9 @@ body {
 }
 .originDestination > div{
     flex: 1;
+}
+#routeDescription{
+    display: flex;
 }
 .sliders{
     display: flex;
@@ -42,9 +57,6 @@ body {
 }
 
 /*WEATHER SLIDESHOW CARD STYLES*/
-.active {
-  background-color: #717171;
-}
 .dot {
   height: 15px;
   width: 15px;
@@ -53,6 +65,9 @@ body {
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+}
+.active {
+  background-color: #717171;
 }
 .fade {
   -webkit-animation-name: fade;
@@ -73,7 +88,6 @@ img {
     margin-left: auto;
     margin-right: auto;
     vertical-align: middle;
-
 }
 .mySlides {display: none;}
 

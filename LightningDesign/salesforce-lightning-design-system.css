@@ -5596,7 +5596,8 @@ a.slds-button--inverse:focus {
   font-size: 0.75rem;
   line-height: 1.5;
   margin-right: 0.75rem;
-  margin-bottom: 0.125rem; }
+  margin-bottom: 0.125rem;
+  text-align: center; }
 
 .slds-form-element__label:empty {
   margin: 0; }
