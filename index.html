@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="X-UA-COmpatible" content="IE=edge">
+		<meta name="viewpoint" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href = "styles.css">
-		<!-- <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css"> -->
 		<link rel="stylesheet" href="LightningDesign/salesforce-lightning-design-system.css">
 		<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 		<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+		<title>Penrod Weather</title>
 	</head>
 	<body onunload="storeTravelPreferences()">
 		<div class="slds-grid slds-gutters slds-wrap">
@@ -40,7 +43,7 @@
 
 					</div>
 					<br>
-					<div style="text-align:center">
+					<div class="dots">
 					  <span class="dot"></span> 
 					  <span class="dot"></span> 
 					  <span class="dot"></span>
@@ -64,7 +67,6 @@
 								<div id="travelInstructions">
 								  <img src="Images/travelInstructions.png">
 								</div>
-							<!-- <button onclick="test()">TEST</button> -->
 						</div>
 					</div>
 					<div class = "sliders">
@@ -80,7 +82,7 @@
 					  				<input type="range" class="slds-slider__range" id="bike" readonly ">
 					  				<span class="slds-slider__value" aria-hidden="true"></span>
 								</div>
-								<div id="slider-bike" style="height:10px;"></div>
+								<div id="slider-bike"></div>
 							</div>
 							<label class="slds-form-element__label" for="bus">
 							    <span class="slds-slider-label">
@@ -93,7 +95,7 @@
 					  				<input type="range" class="slds-slider__range" id="bus" readonly ">
 					  				<span class="slds-slider__value" aria-hidden="true"></span>
 								</div>
-								<div id="slider-bus" style="height:10px;"></div>
+								<div id="slider-bus"></div>
 							</div>
 							<label class="slds-form-element__label" for="drive">
 							    <span class="slds-slider-label">
@@ -106,7 +108,7 @@
 					  				<input type="range" class="slds-slider__range" id="drive" readonly ">
 					  				<span class="slds-slider__value" aria-hidden="true"></span>
 								</div>
-								<div id="slider-drive" style="height:10px;"></div>
+								<div id="slider-drive"></div>
 							</div>
 						</div>
 					</div>
@@ -126,8 +128,10 @@
 						</div>
 					</div>
 					<button class="slds-button_success" id="submit">Calculate Route</button>
-					<div id="map"></div>
-			    	<div id="directionsPanel"></div>
+					<div class="mapContainer">
+						<div id="map"></div>
+			    		<div id="directionsPanel"></div>
+			    	</div>
 		    	</article>
 			</div>
 

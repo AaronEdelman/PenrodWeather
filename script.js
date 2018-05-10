@@ -7,7 +7,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, originLa
     var destination = getDestination(office)
     var destLatLng = destination.split(",");
     var travelMode = calculateTravelMode(office);
-    console.log(travelMode);
     directionsService.route({
         origin: origin,
         destination: new google.maps.LatLng(destLatLng[0], destLatLng[1]),
@@ -53,7 +52,7 @@ function calculateTravelMode(destination){
       busPoints -= 10;
       break;
     case (element.startsWith('3')): //drizzle
-      bikePoints -=10;
+      bikePoints -=20;
       break;
     case (element.startsWith('5')): //rain
       bikePoints -=30;
@@ -81,13 +80,6 @@ function calculateTravelMode(destination){
     return 'DRIVING';
   } 
 }
-
-document.getElementById('infoIcon').addEventListener('mouseover', function() {
-      document.getElementById('travelInstructions').style.zIndex = "2";
-  });
-document.getElementById('infoIcon').addEventListener('mouseout', function() {
-      document.getElementById('travelInstructions').style.zIndex = "-1";
-  });
 
 function geocodeAddress(directionsService, directionsDisplay, geocoder, callback){
     var address = document.getElementById('address').value;
@@ -117,7 +109,7 @@ function getDestination(office){
           destinationLatLng = '43.0332535,-87.9061252';
           break;
         case 'minneapolis':
-          destinationLatLng = '44.9762798,-93.2687264';
+          destinationLatLng = '44.97648,-93.268684';
           break;
         case 'dallas':
           destinationLatLng = '32.8090935,-96.8079239';
@@ -147,7 +139,6 @@ function initMap() {
 }
 
 function refineWeatherObj(destination){
-  console.log(weatherObj);
   for(var i=0; i<weatherObj.cnt; i++)
   {
     if(weatherObj.list[i].name.toLowerCase() === destination){
@@ -162,11 +153,7 @@ function storeTravelPreferences(){
   localStorage.setItem("drivePoints", document.getElementById('drive').value);
 }
 
-function storeWeatherJSON(data){
-  weatherObj = data;
-}
-
-//travel preference sliders
+        //travel preference sliders
 $( function() {
     $( "#slider-bike" ).slider({
       orientation: "horizontal",
@@ -209,6 +196,17 @@ $( function() {
     $( "#drive" ).val( $( "#slider-drive" ).slider( "value" ) );
   } );
 
+          //toggle infoIcon hover
+document.getElementById('infoIcon').addEventListener('mouseover', function() {
+      var travelDirections = document.getElementById('travelInstructions');
+      travelDirections.style.zIndex = "2";
+      travelDirections.style.visibility = "visible";
+  });
+document.getElementById('infoIcon').addEventListener('mouseout', function() {
+      var travelDirections = document.getElementById('travelInstructions');
+      travelDirections.style.zIndex = "-1";
+      travelDirections.style.visibility = "hidden";
+  });
 
 //WEATHER SLIDESHOW CARD
 (function getWeather(){
@@ -276,8 +274,8 @@ var slideIndex = 0;
     setTimeout(showSlides, 5000); // Change image every 5 seconds
 })();
 
-function test(){
-var value = localStorage.getItem("bikePoints");
-console.log(value);
+function storeWeatherJSON(data){
+  weatherObj = data;
 }
+
 
