@@ -27,6 +27,9 @@ html {
   padding-top: 20px;
   pointer-events:none;
 }
+#infoIcon:hover{
+    cursor: pointer;
+}
 #map {
 
     height: 100%;
@@ -95,6 +98,7 @@ html {
   max-height: 1000px;
   position: relative;
   margin: auto;
+  text-align: center;
 }
 
 
